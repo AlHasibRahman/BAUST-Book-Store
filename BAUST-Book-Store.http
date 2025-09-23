@@ -1,0 +1,6 @@
+@BAUST_Book_Store_HostAddress = http://localhost:5229
+
+GET {{BAUST_Book_Store_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
