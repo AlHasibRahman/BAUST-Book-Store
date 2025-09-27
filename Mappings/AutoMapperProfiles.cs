@@ -10,8 +10,9 @@ public class AutoMapperProfiles : Profile
 {
     public AutoMapperProfiles()
     {
-        CreateMap<Book, BookDto>().ReverseMap(); 
+        CreateMap<Book, BookDto>().ReverseMap();
         CreateMap<Book, CreateBookDto>().ReverseMap();
         CreateMap<Book, UpdateBookDto>().ReverseMap();
+        CreateMap<UploadImageRequestDto, Image>();
     }
 }

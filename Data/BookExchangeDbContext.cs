@@ -11,6 +11,7 @@ public class BookExchangeDbContext : DbContext
     }
 
     public DbSet<Book> Books { get; set; }
+    public DbSet<Image> Images { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
