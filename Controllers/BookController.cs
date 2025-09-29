@@ -60,19 +60,21 @@ namespace BAUST_Book_Store.Controllers
             return CreatedAtAction(nameof(GetBookById), new { id = bookDomain.Id }, bookDto);
         }
 
-        [HttpDelete]
-        [Route("{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteBook([FromRoute] int id)
         {
-            var bookDomain = await repository.DeleteBookByIdAsync(id);
-            if (bookDomain is null)
+            try
             {
-                return NotFound();
+                await repository.DeleteBookByIdAsync(id);
+                return NoContent(); // 204
             }
-            var booksDto = mapper.Map<List<BookDto>>(bookDomain);
-            return Ok(booksDto);
+            catch (KeyNotFoundException)
+            {
+                return NotFound(); // 404
+            }
         }
+
     }
 
-    
+
 }

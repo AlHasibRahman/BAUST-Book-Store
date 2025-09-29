@@ -15,4 +15,8 @@ public class Book
     public double rentPrice { get; set; }
     public bool isAvilable { get; set; }
 
+     // Foreign Key
+    public long OwnerId { get; set; }
+    public UserProfile Owner { get; set; } // Navigation property
+
 }

@@ -15,4 +15,6 @@ public class BookDto
     public double rentPrice { get; set; }
     public bool isAvilable { get; set; }
 
+    public UserProfileDto Owner { get; set; }
+
 }

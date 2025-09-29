@@ -14,5 +14,9 @@ public class AutoMapperProfiles : Profile
         CreateMap<Book, CreateBookDto>().ReverseMap();
         CreateMap<Book, UpdateBookDto>().ReverseMap();
         CreateMap<UploadImageRequestDto, Image>();
+
+        CreateMap<UserProfile, UserProfileDto>().ReverseMap();
+        CreateMap<UserProfile, CreateUserProfileDto>().ReverseMap();
+        CreateMap<UserProfile, UpdateUserProfileDto>().ReverseMap();
     }
 }

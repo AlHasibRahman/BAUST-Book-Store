@@ -1,5 +1,4 @@
 using System;
-
 using BAUST_Book_Store.Models.Domain;
 
 namespace BAUST_Book_Store.Repositories;
@@ -10,5 +9,5 @@ public interface IBookRepository
     Task<Book?> GetBookByIdAsync(int id);
     Task<Book> CreateBookAsync(Book book);
     Task<Book?> UpdateBookAsync(int id, Book book);
-    Task<List<Book>?> DeleteBookByIdAsync(int id);
+    Task DeleteBookByIdAsync(int id);
 }

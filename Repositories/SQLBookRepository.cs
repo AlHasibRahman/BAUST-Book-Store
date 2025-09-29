@@ -21,24 +21,23 @@ public class SQLBookRepository : IBookRepository
     }
     Task<List<Book>> IBookRepository.GetAllBookAsync()
     {
-        var booksQuery = dbContext.Books.ToListAsync();
+        var booksQuery = dbContext.Books.Include(x=>x.Owner).ToListAsync();
         return booksQuery;
     }
 
-    public async Task<List<Book>?> DeleteBookByIdAsync(int id)
+    public async Task DeleteBookByIdAsync(int id)
     {
         var book = await dbContext.Books.FirstOrDefaultAsync(c => c.Id == id);
         if (book is null)
         {
-            return null;
+            throw new KeyNotFoundException($"Book with id {id} not found");
         }
         dbContext.Books.Remove(book);
         await dbContext.SaveChangesAsync();
-        return await dbContext.Books.ToListAsync();
     }
     public async Task<Book?> GetBookByIdAsync(int id)
     {
-        var book = await dbContext.Books.FirstOrDefaultAsync(c => c.Id == id);
+        var book = await dbContext.Books.Include(x=>x.Owner).FirstOrDefaultAsync(c => c.Id == id);
         if (book is null)
         {
             return null;

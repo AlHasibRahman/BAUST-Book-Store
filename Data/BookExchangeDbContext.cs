@@ -11,13 +11,28 @@ public class BookExchangeDbContext : DbContext
     }
 
     public DbSet<Book> Books { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Image> Images { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Book>()
+        .HasOne(b => b.Owner)
+        .WithMany(u => u.Books)
+        .HasForeignKey(b => b.OwnerId)
+        .OnDelete(DeleteBehavior.Cascade); // Ef default behavior
 
-        var books = new List<Book>()
+        modelBuilder.Entity<Transaction>()
+        .HasOne(t => t.Buyer)
+        .WithMany(u => u.Transactions)
+        .HasForeignKey(t => t.BuyerId)
+        .OnDelete(DeleteBehavior.Restrict); // or NoAction */
+
+
+
+      /*  var books = new List<Book>()
         {
             new Book
             {
@@ -46,6 +61,6 @@ public class BookExchangeDbContext : DbContext
             }
 
         };
-        modelBuilder.Entity<Book>().HasData(books);
+        modelBuilder.Entity<Book>().HasData(books); */
     }
 }
