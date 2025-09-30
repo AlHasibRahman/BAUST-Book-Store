@@ -33,9 +33,11 @@ namespace BAUST_Book_Store.Controllers
         [Route("{id:long}")]
         public async Task<IActionResult> GetUserById(long id)
         {
-            var idStr = id.ToString();
-            if (idStr.Length != 16) return BadRequest("Id must be 16 digits");
             var userDomain = await repository.GetUserByIdAsync(id);
+            if (userDomain == null)
+            {
+                return NotFound("This Id not exits.");
+            }
             var userDto = mapper.Map<UserProfileDto>(userDomain);
             return Ok(userDto);
         }

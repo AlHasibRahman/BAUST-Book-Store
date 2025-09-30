@@ -31,8 +31,6 @@ public class CreateBookDto
     [Required]
     public bool isAvilable { get; set; }
     [Required]
-    [MaxLength(16, ErrorMessage = "Ower-Id  should be 16 numbers")]
-    [MinLength(16, ErrorMessage = "Ower-Id  should be 16 numbers")]
     public long OwnerId { get; set; }
 
 }

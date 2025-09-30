@@ -6,10 +6,6 @@ namespace BAUST_Book_Store.Models.Dtos;
 public class CreateUserProfileDto
 {
     [Required]
-    [MaxLength(16, ErrorMessage = "Ower-Id  should be 16 numbers")]
-    [MinLength(16, ErrorMessage = "Ower-Id  should be 16 numbers")]
-    public long Id { get; set; }
-    [Required]
     [MaxLength(30, ErrorMessage = "Book name max legth should be 30 character")]
     [MinLength(3, ErrorMessage = "Book name minimum legth should be 3 character")]
     public string FullName { get; set; }

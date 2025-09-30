@@ -24,6 +24,7 @@ builder.Services.AddDbContext<BookExchangeDbContext>(Options =>
     Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultString")));
 builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
 builder.Services.AddScoped<IImageRepository, LocalImageRepository>();
+builder.Services.AddScoped<IProfileRepository, SQLProfileRepository>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
