@@ -51,11 +51,11 @@ namespace BAUST_Book_Store.Migrations
                     book_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     author_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     img_Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bookPrice = table.Column<double>(type: "float", nullable: false),
-                    rentPrice = table.Column<double>(type: "float", nullable: false),
+                    rentPrice = table.Column<double>(type: "float", nullable: true),
                     isAvilable = table.Column<bool>(type: "bit", nullable: false),
                     OwnerId = table.Column<long>(type: "bigint", nullable: false)
                 },

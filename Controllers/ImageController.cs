@@ -33,7 +33,7 @@ namespace BAUST_Book_Store.Controllers
 
             var image = await imageRepository.UploadImageAsync(newImage.File);
 
-            return Ok(image);
+            return Ok(new { url = image.FilePath});
         }
 
 

@@ -8,12 +8,13 @@ public class BookDto
     public string book_Name { get; set; }
     public string author_Name { get; set; }
     public string edition { get; set; }
-    public string Description { get; set; }
+    public string? Description { get; set; }
     public string img_Url { get; set; }
     public string condition { get; set; }
     public double bookPrice { get; set; }
-    public double rentPrice { get; set; }
+    public double? rentPrice { get; set; }
     public bool isAvilable { get; set; }
+    public long OwnerId { get; set; }
 
     public UserProfileDto Owner { get; set; }
 

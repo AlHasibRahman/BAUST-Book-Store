@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BAUST_Book_Store.Migrations
 {
     [DbContext(typeof(BookExchangeDbContext))]
-    [Migration("20250929202945_InitialMigration")]
+    [Migration("20250930161421_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -34,7 +34,6 @@ namespace BAUST_Book_Store.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("OwnerId")
@@ -66,7 +65,7 @@ namespace BAUST_Book_Store.Migrations
                     b.Property<bool>("isAvilable")
                         .HasColumnType("bit");
 
-                    b.Property<double>("rentPrice")
+                    b.Property<double?>("rentPrice")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
